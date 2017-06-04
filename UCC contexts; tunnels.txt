@@ -1,0 +1,72 @@
+MTSR01
+description  UCC-NewSetup
+  bind interface vlan2018bridge UCC-NewSetup
+
+
+context UCC-NewSetup
+!
+ description UCC-NewSetup
+!
+!
+ no ip domain-lookup
+!
+!
+ interface vlan2018bridge bridge
+  bridge name vlan2018bridge
+ no logging console
+!
+ bridge vlan2018bridge
+  vpls
+   profile To_MUSR01 pw-id 20222018
+!
+!
+!
+!
+!
+end
+confirm ports to use!...11/13...
+
+
+ dot1q pvc transport 2018
+  bridge profile VPLS_bridge_prof
+  qos policy queuing PWFQ
+  bind interface vlan2018bridge 
+
+MUSR01
+
+context UCC-NewSetup
+ description  UCC-NewSetup
+  bind interface vlan2018bridge UCC-NewSetup
+
+
+context UCC-NewSetup
+!
+ description UCC-NewSetup
+!
+!
+ no ip domain-lookup
+!
+ interface vlan2018bridge bridge
+  bridge name vlan2018bridge
+ no logging console
+!
+ bridge vlan2018bridge
+  vpls
+   profile To_MTSR01 pw-id 20222018
+!
+!
+!
+!
+!
+end
+sh conf port 9/3 | begin 2760
+ dot1q pvc transport 2760
+  bridge profile VPLS_bridge_prof
+  qos policy queuing PWFQ
+  bind interface vlan2760bridge TOTAL_COURSEVIEW_IBW
+
+UCC doesnt have a port? ports tied to contexts?
+confirm ports to use!
+
+
+

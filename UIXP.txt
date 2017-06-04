@@ -1,0 +1,45 @@
+appan@mba-ea-1.ug> show configuration | display set | match MTN-PREFIXES
+set groups PACKETEER-GW protocols bgp group IXP-ROUTER export MTN-PREFIXES
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 41.210.128.0/18 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 212.88.96.0/19 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 193.108.252.0/22 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 193.108.214.0/24 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 41.210.128.0/20 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 41.210.144.0/20 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 41.210.160.0/20 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 41.210.176.0/20 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 212.88.96.0/21 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 212.88.104.0/21 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 212.88.112.0/21 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 212.88.120.0/21 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES from route-filter 41.138.0.0/19 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES then next-hop self
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term MTN-PREFIXES then accept
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 196.44.240.0/20 upto /24
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 196.8.86.0/24 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 41.186.0.0/16 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 195.202.64.0/19 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 194.9.64.0/23 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 41.209.0.0/18 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 217.199.144.0/20 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 197.231.236.0/22 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES from route-filter 213.247.24.0/24 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES then next-hop self
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term EXTERNAL_PREFIXES then accept
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term KIXP-PREFIXES from community MTNBUSINESS_KENYA
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term KIXP-PREFIXES then next-hop self
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term KIXP-PREFIXES then accept
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term TULLOW from community IDENT-CUSTOMERS-UG
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term TULLOW from route-filter 196.216.196.0/23 exact
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term TULLOW then next-hop self
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term TULLOW then accept
+set groups PACKETEER-GW policy-options policy-statement MTN-PREFIXES term final then reject
+set groups CUSTOMER-S.SUDAN-INTERNET1 protocols bgp group SOUTH-SUDAN export MTN-PREFIXES-SSUDAN
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term DEFAULT-ROUTE from route-filter 0.0.0.0/0 exact
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term DEFAULT-ROUTE from route-filter 193.108.214.0/24 exact
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term DEFAULT-ROUTE from route-filter 212.88.96.0/19 exact
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term DEFAULT-ROUTE from route-filter 193.108.252.0/22 exact
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term DEFAULT-ROUTE from route-filter 41.210.128.0/18 exact
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term DEFAULT-ROUTE then next-hop self
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term DEFAULT-ROUTE then accept
+set groups CUSTOMER-S.SUDAN-INTERNET1 policy-options policy-statement MTN-PREFIXES-SSUDAN term final then reject

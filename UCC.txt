@@ -1,0 +1,17 @@
+set groups CUSTOMER-UCC interfaces ge-0/0/5 unit 2018 description "CUSTOMER UCC"
+set groups CUSTOMER-UCC interfaces ge-0/0/5 unit 2018 vlan-id 2018
+set groups CUSTOMER-UCC interfaces ge-0/0/5 unit 2018 family inet address 41.210.134.237/30
+set groups CUSTOMER-UCC interfaces ge-0/0/5 unit 2018 family iso
+
+
+delete groups IBB-TO-MPBN-INTERCONNECT policy-options policy-statement ROUTES-FROM-MPBN term NORMAL from route-filter 193.108.252.64/29 exact
+delete groups IBB-TO-MPBN-INTERCONNECT policy-options policy-statement ROUTES-FROM-MPBN term NORMAL from route-filter 193.108.252.64/29 orlonger
+
+
+
+set groups IBB-TO-MPBN-INTERCONNECT policy-options policy-statement ROUTES-TO-MPBN term ADV_ROUTES from route-filter 193.108.252.64/29
+set groups IBB-TO-MPBN-INTERCONNECT policy-options policy-statement ROUTES-TO-MPBN term ADV_ROUTES from route-filter 196.13.122.0/24 
+
+
+
+
