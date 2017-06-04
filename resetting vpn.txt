@@ -1,0 +1,11 @@
+admin@MBGiFW_01> show configuration | compare rollback 1
+[edit security ike]
+!     active: gateway CraftSilicon_gateway { ... }
+[edit security ipsec]
+!     active: vpn ike_CraftSilicon_vpn { ... }
+[edit security policies from-zone OUTSIDE-SZ to-zone MPBN_INTERNET-SZ]
+!      active: policy CraftSilicon-to-MPBN { ... }
+!      active: policy CraftSilicon2-to-MPBN { ... }
+[edit security policies from-zone MPBN_INTERNET-SZ to-zone OUTSIDE-SZ]
+!      active: policy MPBN-to-CraftSilicon { ... }
+!      active: policy MPBN-to-CraftSilicon2 { ... }

@@ -1,0 +1,13 @@
+kappan@mba-ea-1.ug> show interfaces ge-0/1/9.41
+  Logical interface ge-0/1/9.41 (Index 65563) (SNMP ifIndex 580)
+    Description: TEST_LINK
+    Flags: SNMP-Traps VLAN-Tag [ 0x8100.41 ]  Encapsulation: ENET2
+    Input packets : 12274196038
+    Output packets: 13498767902
+    Protocol inet, MTU: 9170
+      Flags: Sendbcast-pkt-to-re
+      Addresses, Flags: Is-Preferred Is-Primary
+        Destination: 41.210.184/24, Local: 41.210.184.225, Broadcast: 41.210.184.255
+    Protocol iso, MTU: 9167
+      Flags: Is-Primary
+    Protocol multiservice, MTU: Unlimited

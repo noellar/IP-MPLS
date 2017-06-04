@@ -1,0 +1,36 @@
+admin@KAFW01> show route 10.171.144.153
+
+inet.0: 4 destinations, 4 routes (4 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+0.0.0.0/0          *[Static/5] 7w4d 07:21:56
+                    > to 10.170.5.146 via fxp0.0
+
+Service_o_MPBN.inet.0: 252 destinations, 254 routes (252 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+10.171.144.0/24    *[Static/5] 7w4d 07:21:56
+                      to table ch-vr.inet.0
+
+ch-vr.inet.0: 76 destinations, 76 routes (76 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+10.171.144.152/29  *[Direct/0] 7w4d 07:17:01
+                    > via reth0.2106
+
+trust-vr.inet.0: 40 destinations, 40 routes (40 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
+
+0.0.0.0/0          *[Static/5] 7w4d 07:21:56
+---(more)---[abort]
+
+{primary:node0}
+admin@KAFW01> ping routing-instance ch-vr 10.171.144.153
+PING 10.171.144.153 (10.171.144.153): 56 data bytes
+64 bytes from 10.171.144.153: icmp_seq=0 ttl=255 time=1.928 ms
+64 bytes from 10.171.144.153: icmp_seq=1 ttl=255 time=8.306 ms
+^C
+--- 10.171.144.153 ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 1.928/5.117/8.306/3.189 ms
+

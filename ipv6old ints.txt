@@ -1,0 +1,96 @@
+
+kappan@mba-mse-1.ug-re1> show interfaces descriptions
+Interface       Admin Link Description
+fe-0/0/1        up    up   NGN-IBB:IBB-BICS:link to NGN for BICS
+fe-0/0/2.201    up    up   UIXP_LINK--uixp-shaper-201
+fe-0/0/3        up    up   NGN-IBB:IBB-BICS:link to NGN for BICS
+ge-0/1/0.0      up    up   mba-mse-1.ug--mba-cr-1.ug
+ge-0/2/0.501    up    up   103990-2v:-:-:4032:-:-:-:Standard Bank Uganda DR
+ge-0/2/0.505    up    up   CUSTOMER MONUCSO_50
+ge-0/2/0.518    up    up   103990-1v:-:-:128:-:-:-:Standard Bank USSD Production
+ge-0/2/0.520    up    up   103157-1v:tlk:-:256:-:103157:NHA Liberty Health kampala
+ds-0/3/0:3:1    up    up   Nile_Breweries_Jinja_2M_LAI004141043
+ds-0/3/0:6:1    up    down KAKIRA_SUGAR_WORKS_EAGW_5th_street(Madhivan)_2.0M
+ds-0/3/0:7:1    up    up   BRITISH_COUNCIL_UGANDA_2M_LAI23716277
+ds-0/3/0:9:1    up    down IBERO_512K_LAI004133940_LL002972
+ds-0/3/0:11:1   up    up   SWEDISH_EMBASSY_1M_LL002972
+ds-0/3/0:12:2   down  up   DAKS_COURIERS_512K_LAI004161764
+ds-0/3/0:12:4   up    up   SMS_MEDIA_LAI004135186
+ds-0/3/0:13:2   up    up   Roko_Construction_Nasser_RD_256k_LAI004142220
+ds-0/3/0:14:1   up    up   UG_AIR_CARGO_ENTEBBE_1M_LAI004135228
+ds-0/3/0:15:1   up    up   QUALITY_CHEMICALS_LUZIRA_1M_LL239491385
+ds-0/3/0:16:1   up    up   NILE_BREWERIES_LUZIRA_512k_LAI310000001
+ds-0/3/0:19:1   up    down MCLEOD_RUSSEL_UGANDA_2M_LL002764
+ds-0/3/0:20:1   up    down Electrol_Comm_2M_LAI004136371
+ds-0/3/0:21:1   up    up   UNDP_Kololo_1M_LAI004135040
+ds-0/3/0:24:1   up    down Mukwano_Industries_2M_LAI004134600
+ds-0/3/0:25:1   up    up   ELIZABETH_GLASER_AIDS_FOUNDATION_KYANDONDO_2M_LAI004153200
+ds-0/3/0:28:1   up    down G4S_2M_LL002935
+ds-0/3/0:32:1   up    down SOUTH_SUDAN_LAI004135591
+ds-0/3/0:33:1   up    up    UGANDA RAILWAYS CORP 1M
+ds-0/3/0:33:2   down  up   MULTICHOICE_ENGEN_MANSIONS_512k_LAI004134661
+ds-0/3/0:33:3   up    down UGANDA_RAILWAYS_CORP_256k_LAI004158442
+ds-0/3/0:34:1   up    up   Red_Pepper_768k_LL002463
+ds-0/3/0:36:1   up    up   RCQHC_MUK_2M_LAI004149780
+ds-0/3/0:37:1   up    up   Directorate_of_Public_Prosecutions_1.5M_LAI004156180
+ds-0/3/0:38:1   up    down BAYPORT_HANNIGTOM_RD_2_512k_LL002899
+ds-0/3/0:40:1   up    up   Simba_Telcom_Kla_Rd_2M_LAI004144781
+ds-0/3/0:41:1   up    up   CIVICON-Internet-Kampala_LAI004135711
+ds-0/3/0:42:2   up    down EAST_AFRICAN_DEVELOPMENT_BANK_512K_LL200154143
+ds-0/3/0:49:1   up    up   GAPCO-LL-Kampala_512k
+ds-0/3/0:50:1   up    up   GLOBAL_HEALTH_UGANDA_MAWANDA_RD fromer IDI
+ds-0/3/0:52:1   up    up   UAE_EXCHANGE_LUGOGO_512K_LAI004136388
+ds-0/3/0:53:1   up    down EQUITY_2M
+ds-0/3/0:58:2   up    down SMS_EMPIRE_1M_LAI004150924
+ds-0/3/0:59:1   up    down UAE_EXCHANGE_AMBERHSE_512k
+ds-0/3/0:62:1   up    down Allied_Bank(Bank_Of_Africa)_2M
+ge-1/0/0        up    up   Internet_Backbone_Link
+ge-1/0/0.751    up    up   xp-dca-1.za--stb-rcc-1.za-a:fbr:stb-vlan-15:1G:stb-tnzt:-:stb:Standard Bank RCC link for Tanzanite
+ge-1/0/1.0      up    up   mba-mse-1.ug--mba-cr-2.ug
+ge-1/0/2.111    up    up   mba-mse-1.ug--mba-fw-1.ug--vlan-111
+ge-1/0/3        up    up   NGN-Peering-Link-GE
+ge-1/0/3.192    up    up   Link to AR2 peering
+ge-1/0/3.194    up    up   Link to AR3 peering
+ge-1/0/3.212    up    up   Mba-mse-1.ug---Backbone.45
+ge-1/0/3.214    up    up   Link to AR peering
+ge-1/0/3.504    up    up   CUSTOMER_OPEN_SOCIETY_2M
+ge-1/0/3.508    down  up   Link-to-EA_CABLES_VPN_KLA
+ge-1/0/3.517    up    up   NC_BANK_LL_KENYA
+ge-1/0/3.521    down  up   MTNBIZ_KE_CR_U-LL-Kampala
+ge-1/0/3.523    up    up   MOGAS-LL-LL-Kampala
+ge-1/0/3.527    up    up   LANOR_INTERNATIONAL_2M
+ge-1/0/3.625    up    up   TRADEMARK_VRF
+ds-1/1/0:14:1   up    down testing for Kenya
+lsq-1/2/0.1     up    up   Link to KIXP MTNBusiness Kenya
+lsq-1/2/0.2     up    up   SOUTHERN SUDAN GIS
+lsq-1/2/0.3     up    up   MPLS Link to MTNBusiness Kenya
+ds-1/3/0:1:1    up    up   NATIONAL_AGRIC_ADVISORY_LUMUMBA_1M_NAADS_LAI004155481
+ds-1/3/0:2:1    up    up   WAZELENDO SAVINGS AND COOPERATIVES LTD BOMBO
+ds-1/3/0:3:1    up    down BANK OF AFRICA(U)JINJA RD
+ds-1/3/0:4:1    up    up   MULTICHOICE_HEAD_OFFICE_2M_LAI004134661
+ds-1/3/0:7:1    up    up   MOGAS_INTERNET_NILE_AVENUE_LAI004150442
+ds-1/3/0:8:1    up    up   VUN_LIMITED_512k_LAI004135620
+ds-1/3/0:9:1    up    down Destiny_consultants_512k_LAI004142301
+ds-1/3/0:10:1   down  down Royal_Suit_2M_LL002933
+ds-1/3/0:11:1   up    down PLAN_INTERNATIONAL_BUGOLOBI_2M_LAI004146820
+ds-1/3/0:12:1   up    up   ST_MARYS_NAMAGUNGA_256k_LAI004153180
+ds-1/3/0:14:1   up    up   UNAIDS_UGANDA_KOLOLO_2MB_LAI004160240
+ds-1/3/0:15:1   up    down CHARTIS_INSURANCE_OASIS_512k
+ds-1/3/0:16:1   up    down BAYPORT HANNIGTOM RD 1M
+ds-1/3/0:21:1   up    down EADB_NILE_AVENUE_1M_LAI004158221
+ds-1/3/0:24:1   up    down BOU_William_Street_192K_TMP22352309
+ds-1/3/0:25:1   up    down COMPUTER_FRONTIERS_1M_LL002473
+ds-1/3/0:30:1   up    down KCCL 512
+ds-1/3/0:31:1   up    up   REAL_PEOPLE_FINANCIAL_SERVICES_1M_LL004133346
+ds-1/3/0:33:1   up    down FAMILY_HEALTH_INTERNATIONAL_1M_LAI004156280
+ds-1/3/0:34:1.0 up    down IMPERIAL_BANK_LL-LL-Kampala
+ds-1/3/0:35:1   up    up   Rwenzori_Beverages_1M_LAI004146563
+ds-1/3/0:38:1   up    up   SOUTH SUDAN
+ds-1/3/0:43:1   up    up   ISO_OFFICE_OF_THE_PRESIDENT_1.5M_LAI40069914
+ds-1/3/0:44:1   up    up   MANTRAC_2M_LAI004146001
+ds-1/3/0:58:1   up    up   BIDCO_512k_LAI001212
+ds-1/3/0:60:1   up    down NCR 2M
+ds-1/3/0:61:1   up    up   MFI_Solutions_Lumumba_Ave_Nakasero_1M_LAI004161840
+ds-1/3/0:63:1   up    up   GIZ_PREEP_AMBER_HSE_2M_LAI004159101
+ae0             up    up   Aggregated Ethernet:fe-0/0/1:fe-0/0/3 Link to BICS
+ae0.0           up    up   Aggregated Ethernet:fe-0/0/1:fe-0/0/3 Link to BICS

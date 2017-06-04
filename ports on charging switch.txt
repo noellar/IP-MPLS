@@ -1,0 +1,1 @@
+configure ports 1:45  medium copper auto off speed 100 duplex full

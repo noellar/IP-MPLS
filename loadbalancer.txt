@@ -1,0 +1,1628 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2015.05.07 17:15:29 =~=~=~=~=~=~=~=~=~=~=~=
+sh conf
+MBSLB01#sh configuration 
+Using 32577 out of 2095096 bytes
+!
+upgrade fpd auto
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname MBSLB01
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$BZoF$znj/oELL02kyEnL7PznP5.
+!
+no aaa new-model
+ip cef
+ip slb serverfarm ADC1
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3717
+  weight 255
+  inservice
+ real 10.170.10.58 5001
+  weight 1
+  inservice
+!
+ip slb serverfarm AFRICASTALK
+ nat server
+ predictor leastconns
+ real 10.170.31.54 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm AIRBORNE
+ nat server
+ predictor leastconns
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.30.39 9081
+  weight 1
+  inservice
+ --More--          real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm APPLAB
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm BCT
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3738
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm BLUE_CUBE
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3728
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm CALLERX
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3781
+  weight 255
+  inservice
+ --More--          real 10.170.10.58 5001
+  weight 1
+  inservice
+!
+ip slb serverfarm CERUDEB
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm CFI
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm CP_SMPP_1
+ predictor leastconns
+ real 10.170.31.54
+  weight 254
+  inservice
+ real 10.170.139.46
+  weight 1
+  inservice
+!
+ip slb serverfarm CP_SMPP_2
+ nat server
+ predictor leastconns
+ real 10.170.31.54 5000
+ --More--           weight 254
+  inservice
+ real 10.170.31.60 5000
+  weight 254
+  no inservice
+ real 10.170.138.185 5000
+  weight 254
+  no inservice
+ real 10.170.139.46 5000
+  weight 1
+  no inservice
+!
+ip slb serverfarm CP_SMPP_BMG
+ nat server
+ predictor leastconns
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.31.54 5000
+  weight 255
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  no inservice
+!
+ip slb serverfarm CP_SMPP_MSDP
+ nat server
+ predictor leastconns
+ real 10.170.139.42 9000
+  weight 255
+  inservice
+!
+ip slb serverfarm CVAS
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 255
+  inservice
+ real 10.170.30.39 9081
+  weight 10
+  no inservice
+ real 10.170.139.59 9000
+  weight 10
+ --More--           no inservice
+!
+ip slb serverfarm CVAS-IN
+ nat server
+ predictor leastconns
+ real 10.170.24.9 8732
+  inservice
+!
+ip slb serverfarm CVAS_NEW
+ nat server
+ predictor leastconns
+ real 10.170.31.54 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm DIGITAL
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm DMARK
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3740
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm DMARK1
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+ --More--           inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm DMTR_FARM_01
+ nat server
+ predictor leastconns
+ real 10.170.24.9 1812
+  inservice
+ real 10.170.24.10 1812
+  inservice
+ real 10.171.144.1 1812
+  inservice
+ real 10.171.144.3 1812
+  inservice
+ real 10.180.0.13 1812
+  inservice
+ real 10.180.0.14 1812
+  inservice
+!
+ip slb serverfarm DMTR_TEST
+ nat server
+ real 10.170.16.138 23
+  inservice
+!
+ip slb serverfarm EMAIL
+ nat server
+ predictor leastconns
+ real 10.170.10.58 25
+  weight 1
+  inservice
+!
+ip slb serverfarm EQUITY
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+ --More--           weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm GALOOLI
+ nat server
+ predictor leastconns
+ real 10.170.31.48 9001
+  no inservice
+ real 10.170.31.54 9001
+  inservice
+ real 10.170.139.46 9001
+  no inservice
+!
+ip slb serverfarm HUAWEI
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3710
+  weight 255
+  inservice
+!
+ip slb serverfarm INFOTIP
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3754
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm INTCOM
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+ --More--           weight 255
+  inservice
+!
+ip slb serverfarm ITNET
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm ITTEST
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm JETTEL
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm MMMOBILE
+ --More--          nat server
+ predictor leastconns
+ real 10.151.105.10 3789
+  weight 255
+  inservice
+ real 10.170.10.58 5001
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  no inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm MOBILEPLUS
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm MOB_PLANET
+ nat server
+ predictor leastconns
+ real 10.170.10.204 5000
+  weight 1
+  no inservice
+ real 10.170.31.54 5000
+  weight 255
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  no inservice
+!
+ip slb serverfarm MONITOR
+ nat server
+ --More--          predictor leastconns
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.30.39 9081
+  weight 1
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm MTECHUGANDA
+ nat server
+ predictor leastconns
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.30.39 9081
+  weight 1
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm MTNBILL
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3705
+  weight 255
+  inservice
+ real 10.170.10.58 5003
+  weight 1
+  inservice
+!
+ip slb serverfarm MTNITDEV
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3708
+  weight 255
+  inservice
+ real 10.170.10.58 5001
+  weight 1
+  inservice
+ --More--         !
+ip slb serverfarm MTNPLAY
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3762
+  weight 255
+  no inservice
+ real 10.170.30.39 9081
+  inservice
+!
+ip slb serverfarm NEWVISION
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm ONE2NET
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm OPERATIONS
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+ --More--           weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm PHONEBACKUP
+ nat server
+ predictor leastconns
+ real 10.170.10.58 5001
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm POLICE
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm SDP_MU_SMSC
+ nat server
+ predictor leastconns
+ real 10.170.31.61 5003
+  inservice
+ real 10.170.138.190 5003
+  no inservice
+!
+ip slb serverfarm SERVICEM
+ nat server
+ predictor leastconns
+ --More--          real 10.151.105.10 3714
+  weight 255
+  inservice
+!
+ip slb serverfarm SHAREDPHONE
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm SIMBA
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm SMPP_FARM_01
+ nat server
+ real 10.151.105.10 3710
+  faildetect numconns 1 numclients 1
+  inservice
+ real 10.170.10.57 9000
+  inservice
+ real 10.170.10.58 5000
+  inservice
+ real 10.170.10.58 5001
+  inservice
+!
+ip slb serverfarm SMPP_MBU_MSDP
+ --More--          nat server
+ predictor leastconns
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm SMPP_UNIFIED
+ nat server
+ predictor leastconns
+ real 10.170.139.59 5002
+  inservice
+!
+ip slb serverfarm SMPP_UNIFIED_2
+ nat server
+ predictor leastconns
+ real 10.170.139.59 9000
+  inservice
+!
+ip slb serverfarm SMSR_5001
+ nat server
+ predictor leastconns
+ real 10.170.10.45 5001
+  weight 1
+  inservice
+ real 10.170.10.46 5001
+  weight 1
+  inservice
+ real 10.170.10.47 5001
+  weight 1
+  inservice
+!
+ip slb serverfarm SMSR_5002
+ nat server
+ predictor leastconns
+ real 10.170.10.45 5002
+  weight 1
+  inservice
+ real 10.170.10.46 5002
+  weight 1
+  inservice
+ real 10.170.10.47 5002
+  weight 1
+  inservice
+ --More--         !
+ip slb serverfarm SMSR_5003
+ nat server
+ predictor leastconns
+ real 10.170.10.45 5003
+  weight 1
+  inservice
+ real 10.170.10.46 5003
+  weight 1
+  inservice
+ real 10.170.10.47 5003
+  weight 1
+  inservice
+!
+ip slb serverfarm SMSR_9000
+ nat server
+ predictor leastconns
+ real 10.170.10.45 9000
+  weight 1
+  inservice
+ real 10.170.10.46 9000
+  weight 1
+  inservice
+ real 10.170.10.47 9000
+  weight 1
+  inservice
+!
+ip slb serverfarm SMSR_EXT_CP
+ nat server
+ predictor leastconns
+ real 10.170.10.45 5001
+  weight 1
+  inservice
+ real 10.170.10.46 5001
+  weight 1
+  inservice
+ real 10.170.10.47 5001
+  weight 1
+  inservice
+!
+ip slb serverfarm SMS_MEDIA
+ nat server
+ predictor leastconns
+ --More--          real 10.151.105.10 3723
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm SMS_ONE
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3777
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm SM_FAME
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3725
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm SOLUTION4
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm STING_MOBILE
+ nat server
+ predictor leastconns
+ --More--          real 10.151.105.10 3733
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm S_AND_S
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3767
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm TEST
+ nat server
+ real 10.170.11.73 23
+  inservice
+!
+ip slb serverfarm TEST_BMG
+ nat server
+ predictor leastconns
+ real 10.170.10.58 5001
+  no inservice
+ real 10.170.10.204 5000
+  inservice
+ real 10.170.139.46 5000
+  inservice
+!
+ip slb serverfarm TEXT_2_CHANGE
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3722
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm TEXT_MEDIA
+ --More--          nat server
+ predictor leastconns
+ real 10.151.105.10 3782
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm TROPICAL
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+  inservice
+!
+ip slb serverfarm TRUE_AFRICAN
+ nat server
+ predictor leastconns
+ real 10.151.105.10 3702
+  weight 1
+  inservice
+ real 10.170.30.39 9081
+  weight 255
+  inservice
+!
+ip slb serverfarm TWITTER
+ nat server
+ predictor leastconns
+ real 10.170.10.204 5000
+  weight 1
+  no inservice
+ real 10.170.31.54 5000
+  weight 255
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+ --More--           no inservice
+!
+ip slb serverfarm UICP_MAGIC-NO
+ nat server
+ real 0.170.136.62 10010
+  no inservice
+ real 10.151.50.80 10010
+  weight 1
+  inservice
+ real 10.151.50.104 10010
+  weight 1
+  no inservice
+ real 10.170.16.37 10010
+  weight 3
+  inservice
+ real 10.170.16.42 10010
+  weight 3
+  inservice
+ real 10.170.17.19 10010
+  weight 3
+  inservice
+ real 10.170.136.62 10010
+  weight 3
+  inservice
+ real 10.170.136.63 10010
+  weight 3
+  inservice
+!
+ip slb serverfarm UICP_MT-BILLING
+ nat server
+ real 0.170.136.62 10010
+  no inservice
+ real 10.151.50.1 10010
+  maxconns 12
+  inservice
+ real 10.151.50.80 10010
+  weight 1
+  maxconns 12
+  inservice
+ real 10.151.50.104 10010
+  weight 2
+  maxconns 24
+  no inservice
+ --More--          real 10.170.16.37 10010
+  weight 3
+  maxconns 34
+  inservice
+ real 10.170.16.42 10010
+  weight 3
+  maxconns 17
+  inservice
+ real 10.170.17.19 10010
+  weight 3
+  maxconns 34
+  inservice
+ real 10.170.136.62 10010
+  weight 3
+  maxconns 34
+  inservice
+ real 10.170.136.63 10010
+  weight 3
+  maxconns 34
+  inservice
+!
+ip slb serverfarm UICP_TEST
+ nat server
+ real 0.170.136.62 10010
+  no inservice
+ real 10.151.50.80 10010
+  weight 1
+  inservice
+ real 10.151.50.104 10010
+  weight 1
+  no inservice
+ real 10.170.16.37 10010
+  weight 3
+  inservice
+ real 10.170.16.42 10010
+  weight 3
+  inservice
+ real 10.170.17.19 10010
+  weight 3
+  inservice
+ real 10.170.136.62 10010
+  weight 3
+  inservice
+ --More--          real 10.170.136.63 10010
+  weight 3
+  inservice
+!
+ip slb serverfarm VAS_DEV_SRV
+ nat server
+ real 10.170.148.23 80
+  inservice
+ real 10.170.148.30
+  no inservice
+ real 10.171.150.12 80
+  no inservice
+ real 10.171.150.15 80
+  no inservice
+ real 10.171.150.22 80
+  inservice
+ real 10.171.150.23 80
+  inservice
+ real 10.171.150.24 80
+  inservice
+!
+ip slb serverfarm VAS_DEV_SRV_TE
+ nat server
+ real 10.170.148.23 80
+  inservice
+ real 10.171.150.22 80
+  inservice
+ real 10.171.150.23 80
+  inservice
+ real 10.171.150.24 80
+  inservice
+!
+ip slb serverfarm VUNLIMITED
+ nat server
+ predictor leastconns
+ real 10.170.10.58 9000
+  weight 1
+  inservice
+ real 10.170.10.204 5000
+  weight 10
+  inservice
+ real 10.170.139.46 5000
+  weight 255
+ --More--           inservice
+ real 10.171.150.24 80
+  inservice
+!
+ip slb vserver ADC1
+ virtual 10.170.26.35 tcp 3717
+ serverfarm ADC1
+ inservice
+!
+ip slb vserver AFRICASTALK
+ virtual 41.210.168.96 tcp 3792
+ serverfarm AFRICASTALK
+ client 134.213.48.87 255.255.255.255
+ inservice
+!
+ip slb vserver AIRBORNE
+ virtual 10.170.26.35 tcp 3712
+ serverfarm AIRBORNE
+ client 196.10.101.41 255.255.255.255
+ client 196.10.101.42 255.255.255.255
+ client 196.10.101.43 255.255.255.255
+ inservice
+!
+ip slb vserver APPLAB
+ virtual 10.170.26.35 tcp 3758
+ serverfarm APPLAB
+ client 74.208.230.84 255.255.255.255
+ inservice
+!
+ip slb vserver BCT
+ virtual 10.170.26.35 tcp 3738
+ serverfarm BCT
+ client 212.88.119.34 255.255.255.255
+ inservice
+!
+ip slb vserver BLUE_CUBE
+ virtual 10.170.26.35 tcp 3728
+ serverfarm BLUE_CUBE
+ client 193.108.253.222 255.255.255.255
+ inservice
+!
+ip slb vserver CALLERX
+ virtual 41.210.168.96 tcp 3781
+ --More--          serverfarm CALLERX
+ client 174.120.177.50 255.255.255.255
+ inservice
+!
+ip slb vserver CCN_DIAMETER
+ no inservice
+!
+ip slb vserver CERUDEB
+ virtual 41.210.168.96 tcp 3713
+ serverfarm CERUDEB
+ client 196.0.26.8 255.255.255.255
+ client 196.0.37.210 255.255.255.255
+ inservice
+!
+ip slb vserver CFI
+ virtual 10.170.26.35 tcp 3741
+ serverfarm CFI
+ inservice
+!
+ip slb vserver CP_SMPP_1
+ virtual 10.170.26.37 tcp 5000
+ serverfarm CP_SMPP_1
+ inservice
+!
+ip slb vserver CP_SMPP_2
+ virtual 10.170.26.54 tcp 5000
+ serverfarm CP_SMPP_2
+ inservice
+!
+ip slb vserver CP_SMPP_BMG
+ virtual 10.170.26.50 tcp 5000
+ serverfarm CP_SMPP_BMG
+ inservice
+!
+ip slb vserver CP_SMPP_MSDP
+ virtual 10.170.26.50 tcp 9000
+ serverfarm CP_SMPP_MSDP
+ inservice
+!
+ip slb vserver CVAS
+ virtual 41.210.168.96 tcp 9000
+ serverfarm CVAS
+ inservice
+ --More--         !
+ip slb vserver CVAS-IN
+ virtual 41.210.168.99 tcp 8732
+ serverfarm CVAS-IN
+ inservice
+!
+ip slb vserver CVAS_NEW
+ virtual 41.210.168.96 tcp 5000
+ serverfarm CVAS_NEW
+ client 95.138.147.250 255.255.255.255
+ inservice
+!
+ip slb vserver DIGITAL
+ virtual 10.170.26.35 tcp 3734
+ serverfarm DIGITAL
+ client 41.222.5.58 255.255.255.255
+ inservice
+!
+ip slb vserver DMARK
+ virtual 10.170.26.35 tcp 3740
+ serverfarm DMARK
+ client 196.0.22.39 255.255.255.255
+ inservice
+!
+ip slb vserver DMARK1
+ virtual 10.170.26.35 tcp 3788
+ serverfarm DMARK1
+ inservice
+!
+ip slb vserver DMTR_SERVER_01
+ virtual 10.170.26.46 tcp 1812
+ serverfarm DMTR_FARM_01
+ inservice
+!
+ip slb vserver EMAIL
+ virtual 10.170.26.35 tcp smtp
+ serverfarm EMAIL
+ client 212.88.97.67 255.255.255.255
+ client 212.88.125.21 255.255.255.255
+ inservice
+!
+ip slb vserver EQUITY
+ virtual 10.170.26.35 tcp 3774
+ --More--          serverfarm EQUITY
+ inservice
+!
+ip slb vserver GALOOLI
+ virtual 10.170.26.50 tcp 9001
+ serverfarm GALOOLI
+ inservice
+!
+ip slb vserver HUAWEI
+ virtual 10.170.26.35 tcp 3710
+ serverfarm HUAWEI
+ client 212.88.100.195 255.255.255.255
+ inservice
+!
+ip slb vserver INFOTIP
+ virtual 10.170.26.35 tcp 3754
+ serverfarm INFOTIP
+ client 41.191.76.71 255.255.255.255
+ inservice
+!
+ip slb vserver INTCOM
+ virtual 10.170.26.35 tcp 3737
+ serverfarm INTCOM
+ client 69.64.37.69 255.255.255.255
+ client 85.25.176.25 255.255.255.255
+ client 193.219.219.225 255.255.255.255
+ inservice
+!
+ip slb vserver ITNET
+ virtual 10.170.26.35 tcp 3745
+ serverfarm ITNET
+ client 212.88.98.234 255.255.255.255
+ inservice
+!
+ip slb vserver ITTEST
+ virtual 10.170.26.35 tcp 3769
+ serverfarm ITTEST
+ inservice
+!
+ip slb vserver JETTEL
+ virtual 10.170.26.35 tcp 3760
+ serverfarm JETTEL
+ client 212.88.121.14 255.255.255.255
+ --More--          inservice
+!
+ip slb vserver MMMOBILE
+ virtual 41.210.168.96 tcp 3789
+ serverfarm MMMOBILE
+ client 41.206.34.243 255.255.255.255
+ inservice
+!
+ip slb vserver MOBILEPLUS
+ virtual 10.170.26.35 tcp 3776
+ serverfarm MOBILEPLUS
+ inservice
+!
+ip slb vserver MOB_PLANET
+ virtual 41.210.168.96 tcp 3790
+ serverfarm MOB_PLANET
+ client 212.100.248.25 255.255.255.255
+ inservice
+!
+ip slb vserver MONITOR
+ virtual 10.170.26.35 tcp 3773
+ serverfarm MONITOR
+ client 216.139.212.98 255.255.255.255
+ inservice
+!
+ip slb vserver MTECHUGANDA
+ virtual 10.170.26.35 tcp 3729
+ serverfarm MTECHUGANDA
+ client 41.212.83.7 255.255.255.255
+ client 41.215.20.51 255.255.255.255
+ inservice
+!
+ip slb vserver MTNBILL
+ virtual 10.170.26.35 tcp 3705
+ serverfarm MTNBILL
+ client 212.88.100.195 255.255.255.255
+ inservice
+!
+ip slb vserver MTNITDEV
+ virtual 10.170.26.35 tcp 3708
+ serverfarm MTNITDEV
+ client 212.88.125.228 255.255.255.255
+ inservice
+ --More--         !
+ip slb vserver MTNPLAY
+ virtual 10.170.26.35 tcp 3762
+ serverfarm MTNPLAY
+ client 212.88.125.163 255.255.255.255
+ inservice
+!
+ip slb vserver NEWVISION
+ virtual 10.170.26.35 tcp 3772
+ serverfarm NEWVISION
+ client 193.108.252.254 255.255.255.255
+ client 196.0.35.174 255.255.255.255
+ inservice
+!
+ip slb vserver ONE2NET
+ virtual 10.170.26.35 tcp 3709
+ serverfarm ONE2NET
+ inservice
+!
+ip slb vserver OPERATIONS
+ virtual 10.170.26.35 tcp 3735
+ serverfarm OPERATIONS
+ inservice
+!
+ip slb vserver PHONEBACKUP
+ virtual 41.210.168.96 tcp 3778
+ serverfarm PHONEBACKUP
+ client 129.35.173.89 255.255.255.255
+ inservice
+!
+ip slb vserver POLICE
+ virtual 10.170.26.35 tcp 3736
+ serverfarm POLICE
+ client 196.0.25.158 255.255.255.255
+ inservice
+!
+ip slb vserver SDP_MU_SMSC
+ virtual 10.170.26.51 tcp 5003
+ serverfarm SDP_MU_SMSC
+ inservice
+!
+ip slb vserver SERVICEM
+ virtual 10.170.26.35 tcp 3714
+ --More--          serverfarm SERVICEM
+ client 212.88.125.144 255.255.255.255
+ inservice
+!
+ip slb vserver SHAREDPHONE
+ virtual 10.170.26.35 tcp 3721
+ serverfarm SHAREDPHONE
+ client 196.44.36.59 255.255.255.255
+ inservice
+!
+ip slb vserver SIMBA
+ virtual 10.170.26.35 tcp 3749
+ serverfarm SIMBA
+ client 207.234.208.206 255.255.255.255
+ inservice
+!
+ip slb vserver SMPP_MBU_MSDP
+ virtual 10.170.26.50 tcp 9020
+ serverfarm SMPP_MBU_MSDP
+ inservice
+!
+ip slb vserver SMPP_SERVER_01
+ virtual 10.170.26.45 tcp 5050
+ serverfarm SMPP_FARM_01
+ inservice
+!
+ip slb vserver SMPP_UNIFIED
+ virtual 10.170.26.51 tcp 5002
+ serverfarm SMPP_UNIFIED
+ inservice
+!
+ip slb vserver SMPP_UNIFIED_2
+ virtual 10.170.26.51 tcp 9000
+ serverfarm SMPP_UNIFIED
+ inservice
+!
+ip slb vserver SMSR_5001
+ virtual 10.170.26.53 tcp 5001
+ serverfarm SMSR_5001
+ inservice
+!
+ip slb vserver SMSR_5002
+ virtual 10.170.26.53 tcp 5002
+ --More--          serverfarm SMSR_5002
+ inservice
+!
+ip slb vserver SMSR_5003
+ virtual 10.170.26.53 tcp 5003
+ serverfarm SMSR_5003
+ inservice
+!
+ip slb vserver SMSR_9000
+ virtual 10.170.26.53 tcp 9000
+ serverfarm SMSR_9000
+ inservice
+!
+ip slb vserver SMSR_EXT_CP
+ virtual 41.210.168.102 tcp 5001
+ serverfarm SMSR_EXT_CP
+ inservice
+!
+ip slb vserver SMS_MEDIA
+ virtual 10.170.26.35 tcp 3723
+ serverfarm SMS_MEDIA
+ client 107.22.31.101 255.255.255.255
+ client 193.108.252.170 255.255.255.255
+ inservice
+!
+ip slb vserver SMS_ONE
+ virtual 10.170.26.35 tcp 3777
+ serverfarm SMS_ONE
+ client 41.210.172.243 255.255.255.255
+ inservice
+!
+ip slb vserver SM_FAME
+ virtual 10.170.26.35 tcp 3725
+ serverfarm SM_FAME
+ client 196.0.35.14 255.255.255.255
+ inservice
+!
+ip slb vserver SOLUTION4
+ virtual 10.170.26.35 tcp 3727
+ serverfarm SOLUTION4
+ client 50.21.180.138 255.255.255.255
+ inservice
+!
+ --More--         ip slb vserver STING_MOBILE
+ virtual 10.170.26.35 tcp 3733
+ serverfarm STING_MOBILE
+ client 64.151.84.236 255.255.255.255
+ inservice
+!
+ip slb vserver S_AND_S
+ virtual 10.170.26.35 tcp 3767
+ serverfarm S_AND_S
+ client 72.55.165.73 255.255.255.255
+ inservice
+!
+ip slb vserver TEST_BMG
+ virtual 10.170.26.35 tcp 5000
+ serverfarm TEST_BMG
+ inservice
+!
+ip slb vserver TEXT_2_CHANGE
+ virtual 10.170.26.35 tcp 3722
+ serverfarm TEXT_2_CHANGE
+ client 217.148.90.95 255.255.255.255
+ inservice
+!
+ip slb vserver TEXT_MEDIA
+ virtual 10.170.26.35 tcp 3782
+ serverfarm TEXT_MEDIA
+ client 41.210.163.70 255.255.255.255
+ inservice
+!
+ip slb vserver TROPICAL
+ virtual 10.170.26.35 tcp 3746
+ serverfarm TROPICAL
+ client 193.108.252.162 255.255.255.255
+ inservice
+!
+ip slb vserver TRUE_AFRICAN
+ virtual 10.170.26.35 tcp 3702
+ serverfarm TRUE_AFRICAN
+ client 193.108.252.162 255.255.255.255
+ inservice
+!
+ip slb vserver TWITTER
+ virtual 41.210.168.96 tcp 3787
+ --More--          serverfarm TWITTER
+ client 68.64.54.20 255.255.255.255
+ client 74.126.14.147 255.255.255.255
+ inservice
+!
+ip slb vserver TWITTER2
+ virtual 41.210.168.97 tcp 5000
+ serverfarm TWITTER
+ client 68.64.54.20 255.255.255.255
+ client 74.126.14.147 255.255.255.255
+ inservice
+!
+ip slb vserver UCIP
+ no inservice
+!
+ip slb vserver UICP_DBMS_BE
+ virtual 10.170.26.44 tcp 10010
+ serverfarm UICP_TEST
+ idle 45
+ inservice
+!
+ip slb vserver UICP_DBMS_SC
+ virtual 10.170.26.43 tcp 10010
+ serverfarm UICP_TEST
+ idle 45
+ inservice
+!
+ip slb vserver UICP_DBMS_TT
+ virtual 10.170.26.45 tcp 10010
+ serverfarm UICP_TEST
+ idle 45
+ inservice
+!
+ip slb vserver UICP_MAGIC_NO
+ virtual 10.170.26.11 tcp 10010
+ serverfarm UICP_MAGIC-NO
+ inservice
+!
+ip slb vserver UICP_MT-BILLING
+ virtual 10.170.26.14 tcp 10010
+ serverfarm UICP_MT-BILLING
+ idle 45
+ inservice
+ --More--         !
+ip slb vserver UICP_TEST
+ virtual 10.170.26.13 tcp 10010
+ serverfarm UICP_TEST
+ idle 45
+ inservice
+!
+ip slb vserver UICP_TEST_NEW
+ virtual 10.170.26.41 tcp 10010
+ serverfarm UICP_TEST
+ idle 45
+ inservice
+!
+ip slb vserver UICP_TEST_NEW2
+ virtual 10.170.26.42 tcp 10010
+ serverfarm UICP_TEST
+ idle 45
+ inservice
+!
+ip slb vserver VAS_DEV_SRV
+ virtual 10.170.26.52 tcp www
+ serverfarm VAS_DEV_SRV
+ inservice
+!
+ip slb vserver VAS_DEV_TE
+ virtual 10.170.26.55 tcp www
+ serverfarm VAS_DEV_SRV_TE
+ inservice
+!
+ip slb vserver VUNLIMITED
+ virtual 10.170.26.35 tcp 3704
+ serverfarm VUNLIMITED
+ client 193.108.252.194 255.255.255.255
+ client 193.108.252.195 255.255.255.255
+ client 212.88.100.214 255.255.255.255
+ client 212.88.118.126 255.255.255.255
+ inservice
+!
+!
+!
+!
+!
+no ip domain lookup
+ --More--         multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username mtn-slb secret 5 $1$uxB9$hjChe1tZj107bNdugA3FC.
+username kiwanuks secret 5 $1$jKR/$A.3PEFy8vofCLWVTFDgJe0
+username semakue secret 5 $1$vG9E$eGpNuRmI7jOqsaOkdsga7/
+archive
+ log config
+  hidekeys
+!
+!
+!
+!
+!
+!
+interface Loopback10
+ ip address 10.1.1.1 255.255.255.255
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0
+ ip address 1.1.1.1 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet0/0.2051
+ description "Link to Context SLB_IN"
+ encapsulation dot1Q 2051
+ --More--          ip address 10.170.26.12 255.255.255.248
+ ip nat inside
+ ip virtual-reassembly
+!
+interface GigabitEthernet0/0.2052
+ description "Link to Context SMPP_O_MPBN"
+ encapsulation dot1Q 2052
+ ip address 10.170.26.20 255.255.255.248
+ ip nat outside
+ ip virtual-reassembly
+!
+interface GigabitEthernet0/0.2053
+ description "Link to Context CCN_O_MPBN"
+ encapsulation dot1Q 2053
+ ip address 10.170.26.28 255.255.255.248
+ ip nat outside
+ ip virtual-reassembly
+!
+interface GigabitEthernet0/0.2054
+ description "Link to Context INT_O_MPBN"
+ encapsulation dot1Q 2054
+ ip address 10.170.26.36 255.255.255.248
+ ip nat inside
+ ip virtual-reassembly
+!
+interface GigabitEthernet0/0.2056
+ description "Link to OLD-SERVICE-NET via FWL"
+ encapsulation dot1Q 2056
+ ip address 10.170.26.154 255.255.255.248
+ ip nat inside
+ ip virtual-reassembly
+!
+interface GigabitEthernet0/0.2058
+ description "Link to OLD-SERVICE-NET via new Context SLB_SRV"
+ encapsulation dot1Q 2058
+ ip address 10.170.126.245 255.255.255.248
+ ip nat inside
+ ip virtual-reassembly
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ --More--          media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ no ip address
+ duplex auto
+ speed auto
+ negotiation auto
+!
+ip forward-protocol nd
+ip route 0.0.0.0 0.0.0.0 10.170.26.33
+ip route 10.99.0.0 255.255.0.0 10.170.26.9
+ip route 10.151.0.0 255.255.0.0 10.170.26.9
+ip route 10.151.50.78 255.255.255.255 10.170.26.25
+ip route 10.151.50.80 255.255.255.255 10.170.126.241
+ip route 10.151.50.104 255.255.255.255 10.170.126.241
+ip route 10.151.105.10 255.255.255.255 10.170.26.17
+ip route 10.151.105.19 255.255.255.255 10.170.26.17
+ip route 10.156.0.0 255.255.0.0 10.170.26.9
+ip route 10.157.4.242 255.255.255.255 10.170.26.9
+ip route 10.170.10.32 255.255.255.224 10.170.26.17
+ip route 10.170.10.192 255.255.255.240 10.170.26.17
+ip route 10.170.11.73 255.255.255.255 10.170.26.17
+ip route 10.170.11.216 255.255.255.248 10.170.26.9
+ip route 10.170.16.0 255.255.255.0 10.170.26.25
+ip route 10.170.16.138 255.255.255.255 10.170.26.25
+ip route 10.170.17.0 255.255.255.0 10.170.26.25
+ip route 10.170.24.8 255.255.255.248 10.170.26.25
+ip route 10.170.26.0 255.255.255.248 10.170.26.9
+ip route 10.170.26.136 255.255.255.248 10.170.26.9
+ip route 10.170.26.160 255.255.255.248 10.170.26.153
+ip route 10.170.30.32 255.255.255.224 10.170.26.17
+ip route 10.170.31.32 255.255.255.224 10.170.26.17
+ip route 10.170.136.0 255.255.255.0 10.170.26.25
+ip route 10.170.138.160 255.255.255.224 10.170.26.17
+ip route 10.170.139.32 255.255.255.224 10.170.26.17
+ip route 10.170.148.23 255.255.255.255 10.170.26.17
+ --More--         ip route 10.170.148.24 255.255.255.252 10.170.26.17
+ip route 10.170.148.30 255.255.255.255 10.170.26.17
+ip route 10.170.148.31 255.255.255.255 10.170.26.17
+ip route 10.170.184.0 255.255.255.0 10.170.26.9
+ip route 10.171.142.0 255.255.255.224 10.170.26.9
+ip route 10.171.144.0 255.255.255.248 10.170.26.25
+ip route 10.171.150.0 255.255.255.192 10.170.26.17
+ip route 10.171.150.12 255.255.255.255 10.170.26.17
+ip route 10.171.150.15 255.255.255.255 10.170.26.17
+ip route 10.171.235.0 255.255.255.240 10.170.26.9
+ip route 10.180.0.0 255.255.255.240 10.170.26.25
+ip route 92.62.165.128 255.255.255.240 10.170.26.9
+ip route 172.22.10.0 255.255.255.0 10.170.26.9
+ip route 172.25.48.36 255.255.255.255 10.170.26.9
+ip route 172.25.48.38 255.255.255.255 10.170.26.9
+ip route 172.25.48.39 255.255.255.255 10.170.26.9
+ip route 172.25.48.41 255.255.255.255 10.170.26.9
+ip route 172.25.48.42 255.255.255.255 10.170.26.9
+ip route 172.25.48.43 255.255.255.255 10.170.26.9
+ip route 172.25.48.45 255.255.255.255 10.170.26.9
+ip route 172.25.48.201 255.255.255.255 10.170.26.9
+no ip http server
+!
+ip nat inside source list 100 interface GigabitEthernet0/0.2052 overload
+ip nat inside source list 101 interface GigabitEthernet0/0.2053 overload
+ip nat inside source list 102 interface GigabitEthernet0/0.2052 overload
+!
+logging alarm informational
+access-list 5 permit 10.151.124.254 log
+access-list 6 permit 10.151.124.254 log
+access-list 100 permit ip any host 10.151.105.10
+access-list 100 permit ip any 10.170.10.32 0.0.0.31
+access-list 100 permit ip any host 10.170.11.73
+access-list 100 permit ip any host 10.170.30.39
+access-list 100 permit ip any host 10.170.10.204
+access-list 100 permit ip any host 10.151.105.19
+access-list 100 permit ip any host 10.170.139.46
+access-list 100 permit ip any host 10.170.139.59
+access-list 100 permit ip any host 10.170.31.54
+access-list 100 permit ip any host 10.170.31.61
+access-list 100 permit ip any host 10.170.139.42
+access-list 100 permit ip any host 10.170.138.190
+access-list 102 permit ip host 172.25.48.42 host 10.170.148.23
+ --More--         access-list 102 permit ip host 172.25.48.42 host 10.170.148.30
+access-list 102 permit ip host 172.25.48.42 host 10.171.150.12
+access-list 102 permit ip host 172.25.48.42 host 10.171.150.15
+access-list 102 permit ip host 172.25.48.42 host 10.171.150.22
+access-list 102 permit ip host 172.25.48.42 host 10.171.150.23
+access-list 102 permit ip host 172.25.48.42 host 10.171.150.24
+access-list 102 permit ip host 172.25.48.43 host 10.170.148.23
+access-list 102 permit ip host 172.25.48.43 host 10.170.148.30
+access-list 102 permit ip host 172.25.48.43 host 10.171.150.12
+access-list 102 permit ip host 172.25.48.43 host 10.171.150.15
+access-list 102 permit ip host 172.25.48.43 host 10.171.150.22
+access-list 102 permit ip host 172.25.48.43 host 10.171.150.23
+access-list 102 permit ip host 172.25.48.43 host 10.171.150.24
+access-list 102 permit ip host 172.25.48.201 host 10.170.148.23
+access-list 102 permit ip host 172.25.48.201 host 10.170.148.30
+access-list 102 permit ip host 172.25.48.201 host 10.171.150.12
+access-list 102 permit ip host 172.25.48.201 host 10.171.150.15
+access-list 102 permit ip host 172.25.48.201 host 10.171.150.22
+access-list 102 permit ip host 172.25.48.201 host 10.171.150.23
+access-list 102 permit ip host 172.25.48.201 host 10.171.150.24
+access-list 102 permit ip host 172.25.48.36 host 10.170.148.23
+access-list 102 permit ip host 172.25.48.36 host 10.170.148.30
+access-list 102 permit ip host 172.25.48.36 host 10.171.150.12
+access-list 102 permit ip host 172.25.48.36 host 10.171.150.15
+access-list 102 permit ip host 172.25.48.36 host 10.171.150.22
+access-list 102 permit ip host 172.25.48.36 host 10.171.150.23
+access-list 102 permit ip host 172.25.48.36 host 10.171.150.24
+access-list 102 permit ip host 172.25.48.39 host 10.170.148.23
+access-list 102 permit ip host 172.25.48.39 host 10.170.148.30
+access-list 102 permit ip host 172.25.48.39 host 10.171.150.12
+access-list 102 permit ip host 172.25.48.39 host 10.171.150.15
+access-list 102 permit ip host 172.25.48.39 host 10.171.150.22
+access-list 102 permit ip host 172.25.48.39 host 10.171.150.23
+access-list 102 permit ip host 172.25.48.39 host 10.171.150.24
+snmp-server view cutdown iso included
+snmp-server view cutdown at excluded
+snmp-server view cutdown ip.21 excluded
+snmp-server view cutdown ip.22 excluded
+snmp-server view CISCO-SLB-MIB ciscoMgmt.161 included
+snmp-server community RO RO 5
+snmp-server community RW RO 6
+snmp-server community ruser RO
+snmp-server community wuser view cutdown RW 6
+ --More--         snmp-server trap-source GigabitEthernet0/0.2051
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps casa
+snmp-server enable traps tty
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps event-manager
+snmp-server enable traps hsrp
+snmp-server host 10.151.124.254 version 2c ruser 
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login local
+!
+!
+end
+
+MBSLB01#             sh configuration 

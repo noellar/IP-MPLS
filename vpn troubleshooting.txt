@@ -1,0 +1,2 @@
+show configuration | display set | match ge-6/0/20.300
+show interfaces descriptions

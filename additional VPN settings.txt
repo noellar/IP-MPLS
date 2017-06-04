@@ -1,0 +1,17 @@
+show configuration security nat source | display set
+show configuration groups SDP security policies from-zone sdp-trusted to-zone sdp-public | display set
+set security nat source rule-set SDP-DNS rule sdp-test-prod5 match destination-address 10.28.3.179/32
+set security nat source rule-set SDP-DNS rule sdp-test-prod5 match destination-address 111.118.180.237/32
+>>rule sdp-test-prod5 shud be 8 ips
+
+insert groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy sdp-public-permit-all after policy SDP-to-pheuture
+
+
+
+set security nat source rule-set SDP-DNS rule sdp-test-prod5 match destination-address 178.79.176.235/32
+set security nat source rule-set SDP-DNS rule sdp-test-prod5 match destination-address 172.16.77.37/32
+
+
+
+insert groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy sdp-public-permit-all after policy SDP-to-Corenett
+Moobifun, Remit-Ug, TRUEAFRICA, Corenett

@@ -1,0 +1,47 @@
+kappan@ispfw-11> show configuration | display set | match MPS
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy TEST-SDP-to-MPS match source-address testbed2
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy TEST-SDP-to-MPS match destination-address MPS_IP
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy TEST-SDP-to-MPS match application any
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy TEST-SDP-to-MPS then permit tunnel ipsec-vpn ike_MPS_vpn
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy TEST-SDP-to-MPS then permit tunnel pair-policy TEST-MPS-to-SDP
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy PROD-SDP-to-MPS match source-address MoMo-Ug
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy PROD-SDP-to-MPS match destination-address MPS_IP
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy PROD-SDP-to-MPS match application any
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy PROD-SDP-to-MPS then permit tunnel ipsec-vpn ike_MPS_vpn
+set groups SDP security policies from-zone sdp-trusted to-zone sdp-public policy PROD-SDP-to-MPS then permit tunnel pair-policy PROD-MPS-to-SDP
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy TEST-MPS-to-SDP match source-address MPS_IP
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy TEST-MPS-to-SDP match destination-address testbed2
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy TEST-MPS-to-SDP match application any
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy TEST-MPS-to-SDP then permit tunnel ipsec-vpn ike_MPS_vpn
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy TEST-MPS-to-SDP then permit tunnel pair-policy TEST-SDP-to-MPS
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy PROD-MPS-to-SDP match source-address MPS_IP
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy PROD-MPS-to-SDP match destination-address MoMo-Ug
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy PROD-MPS-to-SDP match application any
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy PROD-MPS-to-SDP then permit tunnel ipsec-vpn ike_MPS_vpn
+set groups SDP security policies from-zone sdp-public to-zone sdp-trusted policy PROD-MPS-to-SDP then permit tunnel pair-policy PROD-SDP-to-MPS
+set groups SDP security zones security-zone sdp-public address-book address MPS_IP 192.168.50.18/32
+set security ike proposal MPS_P1_proposal description "MPS Phase1 proposal"
+set security ike proposal MPS_P1_proposal authentication-method pre-shared-keys
+set security ike proposal MPS_P1_proposal dh-group group2
+set security ike proposal MPS_P1_proposal authentication-algorithm sha1
+set security ike proposal MPS_P1_proposal encryption-algorithm 3des-cbc
+set security ike proposal MPS_P1_proposal lifetime-seconds 86400
+set security ike policy MPS_P1_policy mode main
+set security ike policy MPS_P1_policy description MPS_Phase1_policy
+set security ike policy MPS_P1_policy proposals MPS_P1_proposal
+set security ike policy MPS_P1_policy pre-shared-key ascii-text "$9$9NtwA01cyeX7dQFnCtOcSlKM8LxN-wJUHleoGUif5u0B1crvWXx7drls24oGUCtp"
+set security ike policy INTEGRAT-SWAZI_P1_policy description MPS_Phase1_policy
+set security ike gateway MPS_gateway ike-policy MPS_P1_policy
+set security ike gateway MPS_gateway address 213.193.32.110
+set security ike gateway MPS_gateway external-interface ge-6/0/20.115
+set security ipsec proposal MPS_P2_proposal description "MPS Phase2 Proposal"
+set security ipsec proposal MPS_P2_proposal protocol esp
+set security ipsec proposal MPS_P2_proposal authentication-algorithm hmac-sha1-96
+set security ipsec proposal MPS_P2_proposal encryption-algorithm 3des-cbc
+set security ipsec proposal MPS_P2_proposal lifetime-seconds 3600
+set security ipsec policy MPS_P2_policy description "MPS P2 Policy"
+set security ipsec policy MPS_P2_policy perfect-forward-secrecy keys group2
+set security ipsec policy MPS_P2_policy proposals MPS_P2_proposal
+set security ipsec vpn ike_MPS_vpn ike gateway MPS_gateway
+set security ipsec vpn ike_MPS_vpn ike ipsec-policy MPS_P2_policy
+set security ipsec vpn ike_MPS_vpn establish-tunnels immediately

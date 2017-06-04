@@ -1,0 +1,47 @@
+admin@MBGiFW_01> show configuration | display set | match NairtimeNigLtd
+set security ike proposal NairtimeNigLtd_IKE authentication-method pre-shared-keys
+set security ike proposal NairtimeNigLtd_IKE dh-group group2
+set security ike proposal NairtimeNigLtd_IKE authentication-algorithm sha1
+set security ike proposal NairtimeNigLtd_IKE encryption-algorithm 3des-cbc
+set security ike proposal NairtimeNigLtd_IKE lifetime-seconds 86400
+set security ike policy Gateway_for_NairtimeNigLtd mode main
+set security ike policy Gateway_for_NairtimeNigLtd proposals NairtimeNigLtd_IKE
+set security ike policy Gateway_for_NairtimeNigLtd pre-shared-key ascii-text "NjHqf5FDitu0Bye"
+set security ike gateway Gateway_for_NairtimeNigLtd ike-policy Gateway_for_NairtimeNigLtd
+set security ike gateway Gateway_for_NairtimeNigLtd address 62.1.0.89
+set security ike gateway Gateway_for_NairtimeNigLtd dead-peer-detection always-send
+set security ike gateway Gateway_for_NairtimeNigLtd dead-peer-detection interval 30
+set security ike gateway Gateway_for_NairtimeNigLtd dead-peer-detection threshold 5
+set security ike gateway Gateway_for_NairtimeNigLtd nat-keepalive 300
+set security ike gateway Gateway_for_NairtimeNigLtd local-identity inet 212.88.118.178
+set security ike gateway Gateway_for_NairtimeNigLtd external-interface ae1.789
+set security ike gateway Gateway_for_NairtimeNigLtd general-ikeid
+set security ipsec proposal NairtimeNigLtd_IPSEC protocol esp
+set security ipsec proposal NairtimeNigLtd_IPSEC authentication-algorithm hmac-sha1-96
+set security ipsec proposal NairtimeNigLtd_IPSEC encryption-algorithm 3des-cbc
+set security ipsec proposal NairtimeNigLtd_IPSEC lifetime-seconds 28800
+set security ipsec proposal NairtimeNigLtd_IPSEC lifetime-kilobytes 3900000
+set security ipsec policy policy-VPN_for_NairtimeNigLtd perfect-forward-secrecy keys group2
+set security ipsec policy policy-VPN_for_NairtimeNigLtd proposals NairtimeNigLtd_IPSEC
+set security ipsec vpn VPN_for_NairtimeNigLtd bind-interface st0.14
+set security ipsec vpn VPN_for_NairtimeNigLtd ike gateway Gateway_for_NairtimeNigLtd
+set security ipsec vpn VPN_for_NairtimeNigLtd ike no-anti-replay
+set security ipsec vpn VPN_for_NairtimeNigLtd ike proxy-identity local 10.171.235.0/28
+set security ipsec vpn VPN_for_NairtimeNigLtd ike proxy-identity remote 192.168.106.0/28
+set security ipsec vpn VPN_for_NairtimeNigLtd ike proxy-identity service any
+set security ipsec vpn VPN_for_NairtimeNigLtd ike ipsec-policy policy-VPN_for_NairtimeNigLtd
+set security ipsec vpn VPN_for_NairtimeNigLtd establish-tunnels immediately
+set security policies from-zone OUTSIDE-SZ to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd match source-address NairtimeNigLtd
+set security policies from-zone OUTSIDE-SZ to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd match destination-address NairtimeNigLtd_INT_SERVERS
+set security policies from-zone OUTSIDE-SZ to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd match application any
+set security policies from-zone OUTSIDE-SZ to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd then permit
+set security policies from-zone VPN to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd match source-address NairtimeNigLtd
+set security policies from-zone VPN to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd match destination-address NairtimeNigLtd_INT_SERVERS
+set security policies from-zone VPN to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd match application any
+set security policies from-zone VPN to-zone MPBN_INTERNET-SZ policy NairtimeNigLtd then permit
+set security policies from-zone MPBN_INTERNET-SZ to-zone VPN policy NAITIME_OUT match source-address NairtimeNigLtd_INT_SERVERS
+set security policies from-zone MPBN_INTERNET-SZ to-zone VPN policy NAITIME_OUT match destination-address NairtimeNigLtd
+set security zones security-zone OUTSIDE-SZ address-book address NairtimeNigLtd 192.168.106.0/28
+set security zones security-zone MPBN_INTERNET-SZ address-book address NairtimeNigLtd_INT_SERVERS 10.171.235.0/28
+set security zones security-zone VPN address-book address NairtimeNigLtd 192.168.106.0/28
+
